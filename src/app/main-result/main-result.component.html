@@ -1,0 +1,12 @@
+<div class="uk-container-expand uk-height-viewport uk-flex-middle uk-flex-center uk-background-muted uk-flex">
+  <button routerLink="" class="uk-icon-button uk-position-small uk-position-top-left uk-overlay uk-overlay-default" uk-icon="reply">Back</button>
+    <ul *ngFor="let country of countries" class="uk-list">
+      <li *ngIf="apiHttp.getCountry() === country.name">
+      <span class="uk-margin-small-right uk-text-bolder">{{country.name}}</span><br>
+      <span class="uk-margin-small-right">Domain: {{country.topLevelDomain}}</span><br>
+      <span class="uk-margin-small-right">Capital: {{country.capital}}</span><br>
+      <span class="uk-margin-small-right">Region: {{country.region}}</span><br>
+    </li>
+
+    </ul>
+</div>

@@ -1,0 +1,16 @@
+<div class="uk-container-expand uk-height-viewport uk-flex-middle uk-flex-center uk-background-muted uk-flex">
+  <ul class="uk-list uk-text-small uk-padding-small">
+    <button routerLink="" class="uk-icon-button uk-position-small uk-position-top-left uk-overlay uk-overlay-default" uk-icon="reply">Back</button>
+    <h3 *ngIf="option==='Country'">Country search by '{{name}}' name</h3>
+    <h3 *ngIf="option==='Capital'">Country search by '{{name}}' capital city</h3>
+    <h3 *ngIf="option==='Currency'">Country search by '{{name}}' currency code</h3>
+    <li *ngFor="let country of countries">
+        <a *ngIf="option==='Country'" (click)="apiHttp.setCountry(country.name)" routerLink = "/mainResult" class="uk-link-text">
+        <span class="user-icon uk-icon-button uk-margin-small-right" uk-icon="world"></span>{{country.name}}</a>
+        <a *ngIf="option==='Capital'" (click)="apiHttp.setCountry(country.name)" routerLink = "/mainResult" class="uk-link-text">
+        <span class="user-icon uk-icon-button uk-margin-small-right" uk-icon="world"></span>{{country.name}} (Capital: {{country.capital}})</a>
+        <a *ngIf="option==='Currency'" (click)="apiHttp.setCountry(country.name)" routerLink = "/mainResult" class="uk-link-text">
+        <span class="user-icon uk-icon-button uk-margin-small-right" uk-icon="world"></span>{{country.name}} (Main Currency Code: {{country.currencies[0].code}})</a>
+    </li>
+  </ul>
+</div>

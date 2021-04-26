@@ -1,0 +1,26 @@
+<div class="uk-container-expand uk-height-viewport uk-flex-middle uk-flex-center uk-background-muted uk-flex">
+  <div class="uk-container-expand-right">
+    <h3>Country search by</h3>
+    <ul class="uk-tab" uk-switcher>
+      <li><a>Name</a></li>
+      <li><a>Capital City</a></li>
+      <li><a>Currency</a></li>
+    </ul>
+    <ul class="uk-switcher uk-margin">
+      <li>
+        <span *ngIf="notFound" class="uk-text-small uk-text-danger">Brak wyników.</span>
+        <input [(ngModel)]="name" class="uk-input uk-border-rounded uk-background-blend-color-burn" type="text">
+        <button (click)="showCountriesByName()" class="uk-button uk-margin uk-button-primary uk-border-rounded uk-align-right">Search</button>
+      </li>
+      <li><span *ngIf="notFound" class="uk-text-small uk-text-danger">Brak wyników. Spróbuj ponownie.</span>
+        <input [(ngModel)]="name" class="uk-input uk-border-rounded uk-background-blend-color-burn" type="text">
+        <button (click)="showCountriesByCapitalName()" class="uk-button uk-margin uk-button-primary uk-border-rounded uk-align-right">Search</button>
+      </li>
+      <li>
+        <span *ngIf="notFound" class="uk-text-small uk-text-danger">Brak wyników. Spróbuj ponownie.</span>
+        <input [(ngModel)]="name" class="uk-input uk-border-rounded uk-background-blend-color-burn" type="text">
+        <button (click)="showCountriesByCurrency()" class="uk-button uk-margin uk-button-primary uk-border-rounded uk-align-right">Search</button>
+      </li>
+    </ul>
+  </div>
+</div>
