@@ -10,8 +10,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class MainResultComponent implements OnInit {
   countries: Countries[] = [];
-  // name = this.apiHttp.getName();
-  // option = this.apiHttp.getOption();
 
   constructor(private apiHttp: ApiHttpService) { }
 

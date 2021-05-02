@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
-export class MainPageComponent implements OnInit, OnDestroy {
+export class MainPageComponent implements OnInit {
   notFound = false;
   name = '';
 
@@ -52,10 +52,10 @@ export class MainPageComponent implements OnInit, OnDestroy {
       }
     );
   }
-
-  ngOnInit(): void {
+  handleClear(): void {
+    this.name = '';
   }
 
-  ngOnDestroy(): void {
+  ngOnInit(): void {
   }
 }

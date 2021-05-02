@@ -1,12 +1,23 @@
 <div class="uk-container-expand uk-height-viewport uk-flex-middle uk-flex-center uk-background-muted uk-flex">
-  <button routerLink="" class="uk-icon-button uk-position-small uk-position-top-left uk-overlay uk-overlay-default" uk-icon="reply">Back</button>
-    <ul *ngFor="let country of countries" class="uk-list">
-      <li *ngIf="apiHttp.getCountry() === country.name">
-      <span class="uk-margin-small-right uk-text-bolder">{{country.name}}</span><br>
-      <span class="uk-margin-small-right">Domain: {{country.topLevelDomain}}</span><br>
-      <span class="uk-margin-small-right">Capital: {{country.capital}}</span><br>
-      <span class="uk-margin-small-right">Region: {{country.region}}</span><br>
-    </li>
-
-    </ul>
+  <a routerLink="" class="uk-icon-button uk-position-small uk-position-top-left uk-overlay uk-overlay-default" uk-icon="reply">Back</a>
+    <span *ngFor="let country of countries" >
+      <ul class="uk-list uk-list-large" *ngIf="apiHttp.getCountry() === country.name">
+        <li class="uk-text-bolder uk-text-large">
+          <img width="50" height="50" src="{{country.flag}}" alt="IMAGE"> {{country.name}}
+        </li>
+        <li ><b>Domain: </b>{{country.topLevelDomain}}</li>
+        <li><b>Capital: </b>{{country.capital}}</li>
+        <li><b>Region: </b>{{country.region}}</li>
+        <li><b>Subregion: </b>{{country.subregion}}</li>
+        <li><b>Area: </b>{{country.area}}</li>
+        <li><b>Timezone: </b>{{country.timezones}}</li>
+        <li><b>Borders: </b>{{country.borders}}</li>
+        <li>
+          <span *ngFor="let currency of country.currencies; let last=last; let first=first"><b>{{first?'Currencies: ':''}}</b>{{currency.name}}{{last?'':', '}}</span>
+        </li>
+        <li>
+          <span *ngFor="let language of country.languages; let last=last; let first=first"><b>{{first?'Languages: ':''}}</b>{{language.name}}{{last?'':', '}}</span>
+        </li>
+      </ul>
+    </span>
 </div>

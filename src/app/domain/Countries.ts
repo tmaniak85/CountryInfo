@@ -1,4 +1,5 @@
 import {Currencies} from './Currencies';
+import {Languages} from './Languages';
 
 export class Countries {
   name: string;
@@ -8,6 +9,9 @@ export class Countries {
   subregion: string;
   population: string;
   area: string;
-  timezone: number;
+  timezones: string;
+  borders: string;
   currencies: Currencies[];
+  languages: Languages[];
+  flag: string;
 }
