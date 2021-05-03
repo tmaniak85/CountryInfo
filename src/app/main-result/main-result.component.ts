@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiHttpService} from '../api-http.service';
 import {Countries} from '../domain/Countries';
-import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-main-result',
@@ -14,17 +13,19 @@ export class MainResultComponent implements OnInit {
   constructor(private apiHttp: ApiHttpService) { }
 
   ngOnInit(): void {
-    if (this.apiHttp.getOption() === 'Country') {
-      this.apiHttp.getCountryByName(localStorage.getItem('name')).subscribe(
-        r => this.countries = r);
-    }
-    if (this.apiHttp.getOption() === 'Capital') {
-      this.apiHttp.getCountryByCapitalName(localStorage.getItem('name')).subscribe(
-        r => this.countries = r);
-    }
-    if (this.apiHttp.getOption() === 'Currency') {
-      this.apiHttp.getCountryByCurrency(localStorage.getItem('name')).subscribe(
-        r => this.countries = r);
+    switch (this.apiHttp.getOption()) {
+      case 'Country':
+        this.apiHttp.getCountryByName(localStorage.getItem('name')).subscribe(
+          r => this.countries = r);
+        break;
+      case 'Capital':
+        this.apiHttp.getCountryByCapitalName(localStorage.getItem('name')).subscribe(
+          r => this.countries = r);
+        break;
+      case  'Currency':
+        this.apiHttp.getCountryByCurrency(localStorage.getItem('name')).subscribe(
+          r => this.countries = r);
+        break;
     }
   }
 }
