@@ -1,4 +1,6 @@
+import {Currency} from './Currency';
+
 export class Currencies {
-  name: string;
-  code: string;
+  currency: Currency;
+  [key: string]: Currency;
 }

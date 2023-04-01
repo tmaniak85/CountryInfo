@@ -1,9 +1,11 @@
+import {Names} from './Names';
+import {Flags} from './Flags';
 import {Currencies} from './Currencies';
 import {Languages} from './Languages';
 
 export class Countries {
-  name: string;
-  topLevelDomain: string;
+  name: Names;
+  tld: string[];
   capital: string;
   region: string;
   subregion: string;
@@ -11,7 +13,7 @@ export class Countries {
   area: string;
   timezones: string;
   borders: string;
-  currencies: Currencies[];
-  languages: Languages[];
-  flag: string;
+  currencies: Currencies;
+  languages: Languages;
+  flags: Flags;
 }

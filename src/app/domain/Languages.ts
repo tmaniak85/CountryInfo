@@ -1,3 +1,3 @@
 export class Languages {
-  name: string;
+  [key: string]: string;
 }

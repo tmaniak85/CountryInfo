@@ -1,8 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Countries} from '../domain/Countries';
 import {ApiHttpService} from '../api-http.service';
-import {Router} from '@angular/router';
-
 
 @Component({
   selector: 'app-results',
@@ -13,6 +11,7 @@ export class ResultsComponent implements OnInit {
   countries: Countries[] = [];
   name = this.apiHttp.getName();
   option = this.apiHttp.getOption();
+  currency: string;
 
   constructor(private apiHttp: ApiHttpService) { }
 
@@ -29,5 +28,11 @@ export class ResultsComponent implements OnInit {
       this.apiHttp.getCountryByCurrency(localStorage.getItem('name')).subscribe(
         r => this.countries = r);
     }
+  }
+
+  getCurrencyNameFromCurrencies(country: Countries): void {
+    Object.entries(country.currencies ?? {}).forEach(([key, value]) => {
+      this.currency =  value.name;
+    });
   }
 }

@@ -7,19 +7,19 @@
     <ul *ngIf="option==='Country'" class="uk-list uk-list-striped">
       <li *ngFor="let country of countries">
         <span class="uk-icon-icon" uk-icon="world"></span>
-        <a (click)="apiHttp.setCountry(country.name)" routerLink = "/mainResult" class="uk-link-text"> {{country.name}}</a>
+        <a (click)="apiHttp.setCountry(country.name.official)" routerLink = "/mainResult" class="uk-link-text"> {{country.name.official}}</a>
       </li>
     </ul>
     <ul *ngIf="option==='Capital'" class="uk-list uk-list-striped">
       <li *ngFor="let country of countries">
         <span class="uk-icon-icon" uk-icon="world"></span>
-        <a (click)="apiHttp.setCountry(country.name)" routerLink = "/mainResult" class="uk-link-text"> {{country.name}} (Capital: {{country.capital}})</a>
+        <a (click)="apiHttp.setCountry(country.name.official)" routerLink = "/mainResult" class="uk-link-text"> {{country.name.official}} (Capital: {{country.capital}})</a>
       </li>
     </ul>
     <ul *ngIf="option==='Currency'" class="uk-list uk-list-striped">
       <li *ngFor="let country of countries">
-        <span class="uk-icon-icon" uk-icon="world"></span>
-        <a (click)="apiHttp.setCountry(country.name)" routerLink = "/mainResult" class="uk-link-text"> {{country.name}} (Main Currency Code: {{country.currencies[0].code}})</a>
+        <span  class="uk-icon-icon" uk-icon="world"></span>
+        <a (click)="apiHttp.setCountry(country.name.official)" routerLink = "/mainResult" class="uk-link-text">{{country.name.official}} {{getCurrencyNameFromCurrencies(country)}}(Main Currency Name: {{currency}})</a>
       </li>
     </ul>
   </div>
