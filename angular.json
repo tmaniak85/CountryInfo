@@ -18,7 +18,6 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -30,7 +29,13 @@
             "scripts": [
               "node_modules/uikit/dist/js/uikit.js",
               "node_modules/uikit/dist/js/uikit-icons.js"
-            ]
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -59,19 +64,24 @@
                   "maximumError": "10kb"
                 }
               ]
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "CountryInfo:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "CountryInfo:build:production"
+            },
+            "development": {
+              "browserTarget": "CountryInfo:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -96,33 +106,22 @@
             "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "CountryInfo:serve"
+            "protractorConfig": "e2e/protractor.conf.js"
           },
           "configurations": {
             "production": {
               "devServerTarget": "CountryInfo:serve:production"
+            },
+            "development": {
+              "devServerTarget": "CountryInfo:serve:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         }
       }
     }
-  },
-  "defaultProject": "CountryInfo"
+  }
 }
